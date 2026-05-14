@@ -1,6 +1,6 @@
 # 기술 아키텍처 다이어그램 — TodoListApp
 
-**버전:** 1.2  
+**버전:** 1.3  
 **작성일:** 2026-05-13  
 **참조 문서:** `2-prd.md` v1.1, `4-project-principles.md` v1.0
 
@@ -8,6 +8,7 @@
 
 | 버전 | 날짜 | 작성자 | 변경 내용 |
 |------|------|--------|-----------|
+| 1.3 | 2026-05-14 | kimhj | §3 토큰 재발급 응답에 refreshToken 추가(Rotation), §1에 /api-docs(Swagger UI) 추가 |
 | 1.2 | 2026-05-13 | kimhj | 인증 토큰 저장 방식 변경 — Refresh Token을 httpOnly 쿠키 → Zustand 메모리로 전환, §1·§3 다이어그램 수정 |
 | 1.1 | 2026-05-13 | kimhj | §1 Middleware 별도 박스 제거(Router에 통합), §4 USER.display_name → name 수정 |
 | 1.0 | 2026-05-13 | kimhj | 최초 작성 |
@@ -25,6 +26,7 @@ flowchart LR
     end
     
     subgraph backend["🔧 백엔드 (Node.js + Express)"]
+        swagger["GET /api-docs<br/>(Swagger UI)"]
         router["Router<br/>(+ Auth Middleware)"]
         controller["Controller"]
         service["Service<br/>(비즈니스 규칙)"]
@@ -118,9 +120,9 @@ sequenceDiagram
     API->>DB: SELECT FROM refresh_tokens<br/>WHERE user_id=? AND revoked=false
     DB-->>API: token record
     API->>API: Refresh Token 검증 & 만료 확인
-    API-->>Browser: 200 OK<br/>{accessToken: new_token}
+    API-->>Browser: 200 OK<br/>{accessToken: new_token,<br/>refreshToken: new_refresh_token}
     
-    Note over Browser: 새 Access Token 받음
+    Note over Browser: 새 Access Token · Refresh Token<br/>모두 Zustand 메모리 갱신 (Token Rotation)
     
     Browser->>API: GET /api/todos<br/>Authorization: Bearer {new_token}
     API-->>Browser: 200 OK<br/>{todos: [...]}

@@ -6,9 +6,10 @@
 
 ## 변경 이력
 
-| 버전 | 날짜 | 작성자 | 변경 내용 |
-|------|------|--------|-----------|
-| 1.0 | 2026-05-13 | kimhj | 최초 작성 |
+| 버전 | 날짜       | 작성자 | 변경 내용 |
+| ---- | ---------- | ------ | --------- |
+| 1.1  | 2026-05-14 | kimhj  | §5.4 로깅 원칙 구현 현황에 맞게 수정, §7.2 swagger 디렉토리 추가 |
+| 1.0  | 2026-05-13 | kimhj  | 최초 작성 |
 
 ---
 
@@ -66,6 +67,7 @@ API 클라이언트 레이어 (fetch 함수 모음)
 - **API 클라이언트 레이어**: 서버 엔드포인트 호출을 담당하는 순수 함수 모음이다. UI 관련 코드나 상태 관리 코드를 포함하지 않는다.
 
 레이어 간 규칙:
+
 - UI 컴포넌트는 API 클라이언트 함수를 직접 호출하지 않는다.
 - TanStack Query의 `queryFn`과 `mutationFn`에서만 API 클라이언트 함수를 호출한다.
 - Zustand Store는 API 클라이언트를 직접 호출하지 않는다. 인증 토큰 저장 및 초기화만 담당한다.
@@ -93,6 +95,7 @@ Database (PostgreSQL 17 / pg)
 - **Database**: PostgreSQL 17이다. Repository 외 다른 레이어에서 직접 접근하지 않는다.
 
 레이어 간 규칙:
+
 - Controller는 Repository를 직접 호출하지 않는다.
 - Service는 다른 Service를 호출할 수 있으나, Controller나 Router를 호출하지 않는다.
 - Repository는 다른 Repository를 호출하지 않는다. 트랜잭션이 필요한 경우 Service에서 pg 클라이언트를 전달하는 방식을 사용한다.
@@ -104,11 +107,12 @@ Database (PostgreSQL 17 / pg)
 ### 3.1 파일명 컨벤션
 
 - 모든 파일명은 `kebab-case`를 사용한다.
-  - 예: `auth-controller.ts`, `todo-repository.ts`, `use-todo-list.ts`
+  - 백엔드(JavaScript) 예: `auth-controller.js`, `todo-repository.js`
+  - 프론트엔드(TypeScript) 예: `use-todo-list.ts`
 - React 컴포넌트 파일명은 `PascalCase`를 사용한다.
   - 예: `TodoItem.tsx`, `CategoryFilter.tsx`
-- 테스트 파일은 대상 파일명에 `.test.ts` 또는 `.test.tsx` 접미사를 붙인다.
-  - 예: `auth-service.test.ts`, `TodoItem.test.tsx`
+- 테스트 파일은 대상 파일명에 `.test.js`(백엔드) 또는 `.test.ts`/`.test.tsx`(프론트엔드) 접미사를 붙인다.
+  - 예: `auth-service.test.js`, `TodoItem.test.tsx`
 
 ### 3.2 변수명 및 함수명 컨벤션
 
@@ -122,7 +126,9 @@ Database (PostgreSQL 17 / pg)
   - DB 컬럼: `snake_case` (예: `user_id`, `is_completed`, `due_date`)
   - TypeScript 객체 속성: `camelCase` (예: `userId`, `isCompleted`, `dueDate`)
 
-### 3.3 TypeScript 타입 정의 원칙
+### 3.3 TypeScript 타입 정의 원칙 (프론트엔드 전용)
+
+> 백엔드는 JavaScript를 사용하므로 이 절은 프론트엔드에만 적용된다.
 
 - 타입과 인터페이스는 `PascalCase`를 사용한다.
   - 예: `Todo`, `Category`, `CreateTodoRequest`, `ApiErrorResponse`
@@ -224,24 +230,29 @@ VITE_API_BASE_URL=
 ### 5.2 보안 원칙
 
 **SQL Injection 방지:**
+
 - `pg` 라이브러리의 파라미터 바인딩(`$1, $2, ...`) 방식만을 사용하여 쿼리를 실행한다.
 - 사용자 입력값을 SQL 문자열에 직접 삽입하지 않는다. [PRD §9]
 
 **토큰 저장:**
+
 - Access Token과 Refresh Token 모두 Zustand 메모리 상태에만 보관한다. `localStorage`나 `sessionStorage`에 저장하지 않는다. [PRD §3]
 - 메모리 저장 방식이므로 페이지 새로고침 시 토큰이 소멸하고 재로그인이 필요하다. 이는 의도된 동작이다.
 
 **JWT 관리:**
+
 - Access Token 만료 시간은 1시간으로 설정한다.
 - Refresh Token 만료 시간은 7일로 설정하며, `refresh_tokens` 테이블에서 서버 사이드 무효화를 지원한다.
 - 로그아웃(UC-02a) 및 비밀번호 변경(UC-03) 시 해당 사용자의 모든 Refresh Token을 서버 DB에서 즉시 무효화한다. [PRD §9]
 - Access Token 검증은 서명(signature) 및 만료 시간(exp)을 반드시 확인한다.
 
 **bcrypt 정책:**
+
 - 비밀번호는 bcrypt로 해시하여 저장한다. salt rounds는 10 이상으로 설정한다. [PRD §9]
 - 비밀번호 비교는 `bcrypt.compare()`를 사용한다. 해시값을 직접 비교하지 않는다.
 
 **입력 검증:**
+
 - 모든 API 요청의 바디, 파라미터, 쿼리스트링에 대해 서버 사이드 유효성 검증을 수행한다.
 - 유효성 검증 실패 시 400 Bad Request를 반환한다.
 
@@ -263,26 +274,26 @@ VITE_API_BASE_URL=
 - `message`: 클라이언트가 표시할 수 있는 한국어 오류 설명.
 - HTTP 상태 코드와 `error.code`는 반드시 일치하는 의미를 가진다.
 
-| HTTP 상태 코드 | 사용 상황 |
-|----------------|-----------|
-| 400 Bad Request | 요청 형식 오류, 유효성 검증 실패 |
-| 401 Unauthorized | 인증 토큰 없음, 토큰 만료, 토큰 무효 |
-| 403 Forbidden | 인증은 되었으나 해당 리소스 접근 권한 없음 (BR-02) |
-| 404 Not Found | 리소스 미존재 |
-| 409 Conflict | 중복 리소스 (예: 이메일 중복) |
-| 500 Internal Server Error | 서버 내부 오류 |
+| HTTP 상태 코드            | 사용 상황                                          |
+| ------------------------- | -------------------------------------------------- |
+| 400 Bad Request           | 요청 형식 오류, 유효성 검증 실패                   |
+| 401 Unauthorized          | 인증 토큰 없음, 토큰 만료, 토큰 무효               |
+| 403 Forbidden             | 인증은 되었으나 해당 리소스 접근 권한 없음 (BR-02) |
+| 404 Not Found             | 리소스 미존재                                      |
+| 409 Conflict              | 중복 리소스 (예: 이메일 중복)                      |
+| 500 Internal Server Error | 서버 내부 오류                                     |
 
 ### 5.4 로깅 원칙
 
-- 로그는 구조화된 JSON 형식으로 출력한다.
-- 각 로그 항목에는 최소한 아래 필드를 포함한다: `timestamp`, `level`, `message`, `requestId`
-- 인증된 요청의 경우 `userId`를 로그에 포함한다.
+- 로그는 `console.log` / `console.warn` / `console.error`를 사용한 텍스트 형식으로 출력한다.
+- 각 로그 항목은 `[모듈명]` 접두사와 핵심 식별자(`userId`, `todoId` 등)를 포함한다.
+  - 예: `[Auth] 로그인 성공 - userId: abc123`
 - 비밀번호, Access Token, Refresh Token 원문 등 민감한 정보는 로그에 포함하지 않는다.
 - 로그 레벨 기준:
-  - `error`: 처리되지 않은 예외, 서버 오류 (5xx)
-  - `warn`: 예측 가능한 클라이언트 오류 (4xx), 비즈니스 규칙 위반 시도
-  - `info`: 요청 수신/완료, 인증 이벤트 (로그인, 로그아웃, 토큰 재발급)
-  - `debug`: 개발 환경 전용 상세 정보 (SQL 쿼리 등)
+  - `console.error`: 처리되지 않은 예외, 서버 오류 (5xx), 트랜잭션 롤백
+  - `console.warn`: 예측 가능한 클라이언트 오류 (4xx), 비즈니스 규칙 위반 시도
+  - `console.log`: 정상 처리 완료 이벤트 (로그인 성공, 할일 생성 등)
+- HTTP 요청 로그는 `app.js`의 미들웨어에서 `[HTTP] METHOD /path STATUS Nms` 형식으로 출력한다.
 
 ---
 
@@ -373,18 +384,18 @@ src/
 
 ### 6.3 각 디렉토리 역할
 
-| 디렉토리 | 역할 |
-|----------|------|
-| `app/` | 전역 라우팅 설정, QueryClient 인스턴스 생성 등 앱 초기화 로직 |
-| `features/{domain}/api/` | 해당 도메인의 API 엔드포인트 호출 함수. `shared/api/http-client.ts`를 사용한다. |
-| `features/{domain}/components/` | 해당 도메인에서만 사용하는 React 컴포넌트 |
-| `features/{domain}/hooks/` | TanStack Query의 `useQuery`, `useMutation`을 감싸는 커스텀 훅 |
-| `features/{domain}/store/` | Zustand Store. 인증 도메인에만 존재하며, 서버 상태는 TanStack Query가 담당한다. |
-| `features/{domain}/types/` | 해당 도메인의 TypeScript 타입 정의 |
-| `features/{domain}/pages/` | 라우트와 1:1 대응하는 페이지 컴포넌트 |
-| `shared/api/http-client.ts` | `Authorization: Bearer` 헤더 주입, 401 응답 시 토큰 재발급(UC-02b) 처리 |
-| `shared/components/` | 특정 도메인에 종속되지 않는 재사용 가능한 UI 컴포넌트 |
-| `shared/types/` | `ApiErrorResponse` 등 프로젝트 전체에서 공유하는 타입 |
+| 디렉토리                        | 역할                                                                            |
+| ------------------------------- | ------------------------------------------------------------------------------- |
+| `app/`                          | 전역 라우팅 설정, QueryClient 인스턴스 생성 등 앱 초기화 로직                   |
+| `features/{domain}/api/`        | 해당 도메인의 API 엔드포인트 호출 함수. `shared/api/http-client.ts`를 사용한다. |
+| `features/{domain}/components/` | 해당 도메인에서만 사용하는 React 컴포넌트                                       |
+| `features/{domain}/hooks/`      | TanStack Query의 `useQuery`, `useMutation`을 감싸는 커스텀 훅                   |
+| `features/{domain}/store/`      | Zustand Store. 인증 도메인에만 존재하며, 서버 상태는 TanStack Query가 담당한다. |
+| `features/{domain}/types/`      | 해당 도메인의 TypeScript 타입 정의                                              |
+| `features/{domain}/pages/`      | 라우트와 1:1 대응하는 페이지 컴포넌트                                           |
+| `shared/api/http-client.ts`     | `Authorization: Bearer` 헤더 주입, 401 응답 시 토큰 재발급(UC-02b) 처리         |
+| `shared/components/`            | 특정 도메인에 종속되지 않는 재사용 가능한 UI 컴포넌트                           |
+| `shared/types/`                 | `ApiErrorResponse` 등 프로젝트 전체에서 공유하는 타입                           |
 
 ---
 
@@ -400,69 +411,67 @@ src/
 
 ```
 src/
-├── app.ts                        # Express 앱 인스턴스 생성, 미들웨어 등록
-├── server.ts                     # HTTP 서버 시작 진입점
+├── app.js                        # Express 앱 인스턴스 생성, 미들웨어 등록, Swagger UI 마운트
+├── server.js                     # HTTP 서버 시작 진입점
 │
 ├── config/                       # 환경변수 로드 및 검증
-│   ├── env.ts                    # 환경변수 파싱 및 필수값 검증
-│   └── db.ts                     # pg Pool 인스턴스 생성 및 export
+│   ├── env.js                    # 환경변수 파싱 및 필수값 검증
+│   └── db.js                     # pg Pool 인스턴스 생성 및 export
 │
 ├── routes/                       # Router 레이어: 경로 및 미들웨어 연결
-│   ├── index.ts                  # 전체 라우터 통합 (/api 마운트)
-│   ├── auth-routes.ts            # /api/auth
-│   ├── user-routes.ts            # /api/users/me
-│   ├── category-routes.ts        # /api/categories
-│   └── todo-routes.ts            # /api/todos
+│   ├── index.js                  # 전체 라우터 통합 (/api 마운트)
+│   ├── auth-routes.js            # /api/auth
+│   ├── user-routes.js            # /api/users/me
+│   ├── category-routes.js        # /api/categories
+│   └── todo-routes.js            # /api/todos
 │
 ├── controllers/                  # Controller 레이어: 요청 파싱, 유효성 검증, 응답 변환
-│   ├── auth-controller.ts
-│   ├── user-controller.ts
-│   ├── category-controller.ts
-│   └── todo-controller.ts
+│   ├── auth-controller.js
+│   ├── user-controller.js
+│   ├── category-controller.js
+│   └── todo-controller.js
 │
 ├── services/                     # Service 레이어: 비즈니스 규칙 구현
-│   ├── auth-service.ts           # UC-01, UC-02, UC-02a, UC-02b 비즈니스 로직
-│   ├── user-service.ts           # UC-03, UC-12 비즈니스 로직
-│   ├── category-service.ts       # UC-04, UC-05, UC-06 비즈니스 로직
-│   └── todo-service.ts           # UC-07, UC-08, UC-09, UC-10, UC-11 비즈니스 로직
+│   ├── auth-service.js           # UC-01, UC-02, UC-02a, UC-02b 비즈니스 로직
+│   ├── user-service.js           # UC-03, UC-12 비즈니스 로직
+│   ├── category-service.js       # UC-04, UC-05, UC-06 비즈니스 로직
+│   └── todo-service.js           # UC-07, UC-08, UC-09, UC-10, UC-11 비즈니스 로직
 │
 ├── repositories/                 # Repository 레이어: pg를 이용한 SQL 실행
-│   ├── user-repository.ts
-│   ├── refresh-token-repository.ts
-│   ├── category-repository.ts
-│   └── todo-repository.ts
+│   ├── user-repository.js
+│   ├── refresh-token-repository.js
+│   ├── category-repository.js
+│   └── todo-repository.js
 │
 ├── middlewares/                  # Express 미들웨어
-│   ├── authenticate.ts           # JWT Access Token 검증, req.userId 주입
-│   ├── error-handler.ts          # 전역 오류 처리, 표준 오류 응답 형식 반환
-│   └── validate-body.ts          # 요청 바디 유효성 검증 미들웨어
-│
-├── types/                        # 백엔드 전역 타입 정의
-│   ├── domain-types.ts           # User, Todo, Category 등 도메인 엔티티 타입
-│   ├── request-types.ts          # Controller 입력 타입 (CreateTodoRequest 등)
-│   └── express.d.ts              # Express Request 타입 확장 (req.userId 등)
+│   ├── authenticate.js           # JWT Access Token 검증, req.user 주입
+│   ├── error-handler.js          # 전역 오류 처리, 표준 오류 응답 형식 반환
+│   └── validate-body.js          # 요청 바디 유효성 검증 미들웨어
 │
 └── utils/                        # 공통 유틸리티
-    ├── jwt-utils.ts              # JWT 발급 및 검증 함수
-    ├── hash-utils.ts             # bcrypt 해시 및 비교 함수
-    └── app-error.ts              # 표준 오류 클래스 (code, message, httpStatus 포함)
+    ├── jwt-utils.js              # JWT 발급 및 검증 함수
+    ├── hash-utils.js             # bcrypt 해시 및 비교 함수
+    └── app-error.js              # 표준 오류 클래스 (code, message, httpStatus 포함)
+
+swagger/
+└── swagger.json                  # OpenAPI 3.0.3 전체 API 명세 (/api-docs 에서 Swagger UI로 제공)
 ```
 
 ### 7.3 각 디렉토리 역할
 
-| 디렉토리/파일 | 역할 |
-|---------------|------|
-| `config/env.ts` | 시작 시 필수 환경변수를 검증한다. 누락된 변수가 있으면 프로세스를 종료한다. |
-| `config/db.ts` | `pg.Pool` 인스턴스를 싱글턴으로 생성하여 export한다. Repository만 이 인스턴스를 import한다. |
-| `routes/` | HTTP 메서드와 경로를 정의하고 `authenticate` 미들웨어를 적용한다. Controller 함수를 핸들러로 등록한다. |
-| `controllers/` | `req.body`, `req.params`, `req.query`에서 입력을 추출하고 유효성을 검증한다. Service를 호출하고 결과를 HTTP 응답으로 변환한다. |
-| `services/` | BR-01 ~ BR-11의 비즈니스 규칙을 구현한다. 권한 검증(BR-02)은 Service에서 수행하며, HTTP 컨텍스트를 직접 참조하지 않는다. |
-| `repositories/` | `pg` 파라미터 바인딩을 사용한 SQL 쿼리만 포함한다. 비즈니스 판단을 하지 않는다. |
-| `middlewares/authenticate.ts` | `Authorization: Bearer` 헤더의 Access Token을 검증하고 `req.userId`에 사용자 ID를 주입한다. 토큰이 없거나 유효하지 않으면 401을 반환한다. |
-| `middlewares/error-handler.ts` | 모든 오류를 포착하여 §5.3에 정의한 표준 오류 응답 형식으로 변환한다. |
-| `utils/app-error.ts` | `code`, `message`, `httpStatus`를 가진 커스텀 오류 클래스. Service에서 생성하여 throw하고 `error-handler`에서 처리한다. |
-| `utils/jwt-utils.ts` | Access Token과 Refresh Token 발급 및 검증 함수. 환경변수의 시크릿과 만료 설정을 사용한다. |
+| 디렉토리/파일                  | 역할                                                                                                                                      |
+| ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| `config/env.js`                | 시작 시 필수 환경변수를 검증한다. 누락된 변수가 있으면 프로세스를 종료한다.                                                               |
+| `config/db.js`                 | `pg.Pool` 인스턴스를 싱글턴으로 생성하여 export한다. Repository만 이 인스턴스를 import한다.                                               |
+| `routes/`                      | HTTP 메서드와 경로를 정의하고 `authenticate` 미들웨어를 적용한다. Controller 함수를 핸들러로 등록한다.                                    |
+| `controllers/`                 | `req.body`, `req.params`, `req.query`에서 입력을 추출하고 유효성을 검증한다. Service를 호출하고 결과를 HTTP 응답으로 변환한다.            |
+| `services/`                    | BR-01 ~ BR-11의 비즈니스 규칙을 구현한다. 권한 검증(BR-02)은 Service에서 수행하며, HTTP 컨텍스트를 직접 참조하지 않는다.                  |
+| `repositories/`                | `pg` 파라미터 바인딩을 사용한 SQL 쿼리만 포함한다. 비즈니스 판단을 하지 않는다.                                                           |
+| `middlewares/authenticate.js`  | `Authorization: Bearer` 헤더의 Access Token을 검증하고 `req.user`에 사용자 정보를 주입한다. 토큰이 없거나 유효하지 않으면 401을 반환한다. |
+| `middlewares/error-handler.js` | 모든 오류를 포착하여 §5.3에 정의한 표준 오류 응답 형식으로 변환한다.                                                                      |
+| `utils/app-error.js`           | `code`, `message`, `httpStatus`를 가진 커스텀 오류 클래스. Service에서 생성하여 throw하고 `error-handler`에서 처리한다.                   |
+| `utils/jwt-utils.js`           | Access Token과 Refresh Token 발급 및 검증 함수. 환경변수의 시크릿과 만료 설정을 사용한다.                                                 |
 
 ---
 
-*본 구조 설계 원칙은 `2-prd.md` v1.1을 기반으로 작성되었으며, 개발 진행에 따라 버전 관리를 통해 업데이트된다.*
+_본 구조 설계 원칙은 `2-prd.md` v1.1을 기반으로 작성되었으며, 개발 진행에 따라 버전 관리를 통해 업데이트된다._

@@ -1,6 +1,6 @@
 # ERD (Entity Relationship Diagram)
 
-- **버전**: 1.0
+- **버전**: 1.1
 - **작성일**: 2026-05-13
 - **참조 문서**: `2-prd.md` v1.3, `1-domain-definition.md` v1.0
 
@@ -8,6 +8,7 @@
 
 | 버전 | 날짜 | 작성자 | 내용 |
 |------|------|--------|------|
+| 1.1 | 2026-05-14 | kimhj | todos.category_id FK ON DELETE RESTRICT로 정정, 누락 인덱스 3개 추가 |
 | 1.0 | 2026-05-13 | kimhj | 최초 작성 |
 
 ---
@@ -36,7 +37,7 @@ erDiagram
     todos {
         UUID id PK "gen_random_uuid()"
         UUID user_id FK "NOT NULL → users.id ON DELETE CASCADE"
-        UUID category_id FK "NOT NULL → categories.id ON DELETE SET DEFAULT (BR-06)"
+        UUID category_id FK "NOT NULL → categories.id ON DELETE RESTRICT (BR-06)"
         VARCHAR title "NOT NULL (BR-07)"
         TEXT description "NULLABLE"
         DATE due_date "NULLABLE"
@@ -65,7 +66,7 @@ erDiagram
 > - `users ||--o{ todos` : 한 명의 사용자는 0개 이상의 할 일을 소유한다. 사용자 삭제 시 관련 todos 모두 삭제(ON DELETE CASCADE).
 > - `users ||--o{ categories` : 한 명의 사용자는 0개 이상의 사용자 정의 카테고리를 소유한다. `user_id IS NULL`인 카테고리는 시스템 기본 카테고리이며 이 관계에서 제외된다.
 > - `users ||--o{ refresh_tokens` : 한 명의 사용자는 0개 이상의 리프레시 토큰을 가진다. 사용자 삭제 시 관련 토큰 모두 삭제(ON DELETE CASCADE).
-> - `categories ||--o{ todos` : 하나의 카테고리는 0개 이상의 할 일을 포함한다. 카테고리 삭제 시 소속 todos의 `category_id`는 시스템 기본 카테고리로 변경된다(ON DELETE SET DEFAULT).
+> - `categories ||--o{ todos` : 하나의 카테고리는 0개 이상의 할 일을 포함한다. FK는 `ON DELETE RESTRICT`로 DB 수준 직접 삭제를 막으며, `category-service` 트랜잭션에서 소속 todos를 기본 카테고리로 재배정한 뒤 카테고리를 삭제한다(UC-06, BR-06).
 
 ---
 
@@ -76,7 +77,10 @@ erDiagram
 | `users_email_key` | users | email | UNIQUE | BR-03 이메일 중복 방지 및 로그인 조회 성능 |
 | `idx_todos_user_id` | todos | user_id | B-Tree | 사용자별 할 일 목록 조회 성능 |
 | `idx_todos_category_id` | todos | category_id | B-Tree | 카테고리별 할 일 조회 성능 및 FK 참조 |
+| `idx_todos_user_completed` | todos | (user_id, is_completed) | B-Tree 복합 | 완료 여부 필터 조회 성능 (BR-10) |
+| `idx_todos_user_due_date` | todos | (user_id, due_date) | B-Tree 복합 (Partial: due_date IS NOT NULL) | 기간 필터 조회 성능 (BR-11) |
 | `idx_categories_user_id` | categories | user_id | B-Tree | 사용자별 카테고리 목록 조회 성능 |
+| `uq_categories_default_name` | categories | name | UNIQUE (Partial: is_default = true) | 기본 카테고리 이름 중복 방지, 시드 멱등성 보장 |
 | `idx_refresh_tokens_user_id` | refresh_tokens | user_id | B-Tree | 사용자별 토큰 조회 및 일괄 무효화 성능 |
 | `idx_refresh_tokens_token_hash` | refresh_tokens | token_hash | B-Tree | 토큰 검증 시 해시값 기반 단건 조회 성능 |
 

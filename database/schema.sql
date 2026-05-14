@@ -132,6 +132,11 @@ CREATE INDEX IF NOT EXISTS idx_todos_user_due_date
 -- categories: 사용자별 카테고리 조회
 CREATE INDEX IF NOT EXISTS idx_categories_user_id ON categories(user_id);
 
+-- categories: 기본 카테고리 이름 중복 방지 (ON CONFLICT DO NOTHING 멱등성 보장)
+CREATE UNIQUE INDEX IF NOT EXISTS uq_categories_default_name
+    ON categories (name)
+    WHERE is_default = true;
+
 -- refresh_tokens: 사용자별 일괄 무효화 · 토큰 해시 검증
 CREATE INDEX IF NOT EXISTS idx_refresh_tokens_user_id
     ON refresh_tokens(user_id);
