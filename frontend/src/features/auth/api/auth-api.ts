@@ -6,6 +6,7 @@ import type {
   RegisterResponse,
   TokenRefreshResponse,
   UpdateMeRequest,
+  DeleteMeRequest,
   User,
 } from '@/features/auth/types/auth-types';
 
@@ -27,5 +28,5 @@ export const getMe = (): Promise<User> =>
 export const updateMe = (data: UpdateMeRequest): Promise<User> =>
   httpClient.patch<User>('/api/users/me', data).then((res) => res.data);
 
-export const deleteMe = (): Promise<void> =>
-  httpClient.delete('/api/users/me').then(() => undefined);
+export const deleteMe = (data: DeleteMeRequest): Promise<void> =>
+  httpClient.delete('/api/users/me', { data }).then(() => undefined);

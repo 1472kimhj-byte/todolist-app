@@ -22,7 +22,7 @@ async function updateMe(req, res, next) {
 
 async function deleteMe(req, res, next) {
   try {
-    await userService.deleteMe(req.user.userId);
+    await userService.deleteMe(req.user.userId, req.body.password);
     res.status(204).send();
   } catch (err) {
     next(err);

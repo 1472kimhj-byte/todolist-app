@@ -12,10 +12,15 @@ interface TodoFormProps {
   onClose: () => void;
 }
 
+function toLocalDateStr(isoString: string): string {
+  const d = new Date(isoString);
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+}
+
 export default function TodoForm({ mode, todo, onClose }: TodoFormProps) {
   const [title, setTitle] = useState(todo?.title ?? '');
   const [description, setDescription] = useState(todo?.description ?? '');
-  const [dueDate, setDueDate] = useState(todo?.due_date ?? '');
+  const [dueDate, setDueDate] = useState(todo?.due_date ? toLocalDateStr(todo.due_date) : '');
   const [categoryId, setCategoryId] = useState(todo?.category_id ?? '');
   const [titleError, setTitleError] = useState('');
 
@@ -27,7 +32,7 @@ export default function TodoForm({ mode, todo, onClose }: TodoFormProps) {
     if (todo) {
       setTitle(todo.title);
       setDescription(todo.description ?? '');
-      setDueDate(todo.due_date ?? '');
+      setDueDate(todo.due_date ? toLocalDateStr(todo.due_date) : '');
       setCategoryId(todo.category_id ?? '');
     }
   }, [todo]);

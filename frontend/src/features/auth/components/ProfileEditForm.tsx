@@ -24,10 +24,12 @@ export default function ProfileEditForm() {
   const [nameError, setNameError] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const [confirmPasswordError, setConfirmPasswordError] = useState('');
+  const [showDeleteDialog, setShowDeleteDialog] = useState(false);
+  const [deletePassword, setDeletePassword] = useState('');
 
   useEffect(() => {
     if (user) {
-      setName(user.name);
+      setName(user.name ?? '');
     }
   }, [user]);
 
@@ -68,9 +70,14 @@ export default function ProfileEditForm() {
   };
 
   const handleDeleteAccount = () => {
-    if (window.confirm('정말로 탈퇴하시겠습니까? 모든 데이터가 삭제됩니다.')) {
-      deleteMeMutation.mutate();
-    }
+    setDeletePassword('');
+    deleteMeMutation.reset();
+    setShowDeleteDialog(true);
+  };
+
+  const handleConfirmDelete = () => {
+    if (!deletePassword) return;
+    deleteMeMutation.mutate({ password: deletePassword });
   };
 
   const getApiError = (error: unknown) => {
@@ -190,12 +197,74 @@ export default function ProfileEditForm() {
         >
           회원 탈퇴
         </Button>
-        {deleteMeMutation.error && (
-          <div style={{ marginTop: '8px' }}>
-            <ErrorMessage error={getApiError(deleteMeMutation.error)} />
-          </div>
-        )}
       </section>
+
+      {showDeleteDialog && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'var(--modal-overlay)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            zIndex: 1000,
+          }}
+        >
+          <div
+            style={{
+              backgroundColor: 'var(--bg-secondary)',
+              borderRadius: '16px',
+              padding: '28px',
+              maxWidth: '400px',
+              width: 'calc(100% - 32px)',
+              boxShadow: 'var(--shadow-modal)',
+            }}
+          >
+            <h3 style={{ fontSize: '1.8rem', fontWeight: 600, color: '#DC2626', marginBottom: '8px' }}>
+              회원 탈퇴 확인
+            </h3>
+            <p style={{ fontSize: '1.4rem', color: 'var(--text-secondary)', marginBottom: '20px' }}>
+              탈퇴 전 본인 확인을 위해 현재 비밀번호를 입력해주세요.
+            </p>
+            <Input
+              type="password"
+              label="현재 비밀번호"
+              value={deletePassword}
+              onChange={(e) => setDeletePassword(e.target.value)}
+              placeholder="현재 비밀번호를 입력하세요"
+            />
+            {deleteMeMutation.error && (
+              <div style={{ marginTop: '8px' }}>
+                <ErrorMessage error={getApiError(deleteMeMutation.error)} />
+              </div>
+            )}
+            <div style={{ display: 'flex', gap: '8px', justifyContent: 'flex-end', marginTop: '20px' }}>
+              <Button
+                variant="secondary"
+                size="sm"
+                onClick={() => setShowDeleteDialog(false)}
+                disabled={deleteMeMutation.isPending}
+              >
+                취소
+              </Button>
+              <Button
+                variant="danger"
+                size="sm"
+                loading={deleteMeMutation.isPending}
+                onClick={handleConfirmDelete}
+              >
+                탈퇴 확인
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

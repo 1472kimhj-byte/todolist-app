@@ -1,0 +1,1591 @@
+{
+  "config": {
+    "configFile": "C:\\_vibe\\todolist-app\\test\\e2e\\playwright.config.ts",
+    "rootDir": "C:/_vibe/todolist-app/test/e2e",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 5
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/_vibe/todolist-app/test/e2e/results/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 5
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/_vibe/todolist-app/test/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "html",
+        {
+          "outputFolder": "results/html-report",
+          "open": "never"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "results/test-results.json"
+        }
+      ],
+      [
+        "list",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.60.0",
+    "workers": 6,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "uc-01-02-auth.spec.ts",
+      "file": "uc-01-02-auth.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "UC-01. 회원가입",
+          "file": "uc-01-02-auth.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "기본 흐름: 이메일+비밀번호로 가입 후 할일 목록으로 이동",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1135,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-15T00:52:48.167Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dcea4422ddbe38d49891-cafb2f35226376adcb3e",
+              "file": "uc-01-02-auth.spec.ts",
+              "line": 5,
+              "column": 7
+            },
+            {
+              "title": "E1. 이미 사용 중인 이메일로 가입 시도 → 오류 메시지",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1309,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-15T00:52:49.431Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dcea4422ddbe38d49891-f4254e660dbd5a1d6954",
+              "file": "uc-01-02-auth.spec.ts",
+              "line": 16,
+              "column": 7
+            },
+            {
+              "title": "E2. 필수 항목 누락 → 제출 차단",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 711,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-15T00:52:50.763Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dcea4422ddbe38d49891-2e6608b9aa0b8cd148b7",
+              "file": "uc-01-02-auth.spec.ts",
+              "line": 30,
+              "column": 7
+            },
+            {
+              "title": "E3. 잘못된 이메일 형식 → 오류 메시지",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 770,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-15T00:52:51.486Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dcea4422ddbe38d49891-e0e8e984877fec2af919",
+              "file": "uc-01-02-auth.spec.ts",
+              "line": 36,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "UC-02. 로그인",
+          "file": "uc-01-02-auth.spec.ts",
+          "line": 47,
+          "column": 6,
+          "specs": [
+            {
+              "title": "기본 흐름: 이메일+비밀번호로 로그인 후 할일 목록으로 이동",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 893,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-15T00:52:52.268Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dcea4422ddbe38d49891-9106c05c9920f8739c59",
+              "file": "uc-01-02-auth.spec.ts",
+              "line": 58,
+              "column": 7
+            },
+            {
+              "title": "E1/E2. 잘못된 인증정보 → 오류 메시지",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 8957,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('alert')\nExpected substring: \u001b[32m\"이메일 또는 비밀번호\"\u001b[39m\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('alert')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('alert')\nExpected substring: \u001b[32m\"이메일 또는 비밀번호\"\u001b[39m\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('alert')\u001b[22m\n\n    at C:\\_vibe\\todolist-app\\test\\e2e\\uc-01-02-auth.spec.ts:70:43",
+                        "location": {
+                          "file": "C:\\_vibe\\todolist-app\\test\\e2e\\uc-01-02-auth.spec.ts",
+                          "column": 43,
+                          "line": 70
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 68 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'button'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m'로그인'\u001b[39m })\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m 69 |\u001b[39m     \u001b[90m// ErrorMessage 컴포넌트는 role=\"alert\"로 렌더링\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 70 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'alert'\u001b[39m))\u001b[33m.\u001b[39mtoContainText(\u001b[32m'이메일 또는 비밀번호'\u001b[39m\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m8000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 71 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 72 |\u001b[39m\n \u001b[90m 73 |\u001b[39m   test(\u001b[32m'E3. 이메일 누락 → 제출 차단'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\_vibe\\todolist-app\\test\\e2e\\uc-01-02-auth.spec.ts",
+                            "column": 43,
+                            "line": 70
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('alert')\nExpected substring: \u001b[32m\"이메일 또는 비밀번호\"\u001b[39m\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('alert')\u001b[22m\n\n\n  68 |     await page.getByRole('button', { name: '로그인' }).click();\n  69 |     // ErrorMessage 컴포넌트는 role=\"alert\"로 렌더링\n> 70 |     await expect(page.getByRole('alert')).toContainText('이메일 또는 비밀번호', { timeout: 8000 });\n     |                                           ^\n  71 |   });\n  72 |\n  73 |   test('E3. 이메일 누락 → 제출 차단', async ({ page }) => {\n    at C:\\_vibe\\todolist-app\\test\\e2e\\uc-01-02-auth.spec.ts:70:43"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-15T00:52:53.176Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\_vibe\\todolist-app\\test\\e2e\\results\\artifacts\\uc-01-02-auth-UC-02-로그인-E1-E2-잘못된-인증정보-→-오류-메시지-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\_vibe\\todolist-app\\test\\e2e\\results\\artifacts\\uc-01-02-auth-UC-02-로그인-E1-E2-잘못된-인증정보-→-오류-메시지-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\_vibe\\todolist-app\\test\\e2e\\uc-01-02-auth.spec.ts",
+                        "column": 43,
+                        "line": 70
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "dcea4422ddbe38d49891-8714e61327fa2bc355f4",
+              "file": "uc-01-02-auth.spec.ts",
+              "line": 65,
+              "column": 7
+            },
+            {
+              "title": "E3. 이메일 누락 → 제출 차단",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 9,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 874,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-15T00:53:02.656Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dcea4422ddbe38d49891-a8b1e62ce499afdd8ca7",
+              "file": "uc-01-02-auth.spec.ts",
+              "line": 73,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "UC-02a. 로그아웃",
+          "file": "uc-01-02-auth.spec.ts",
+          "line": 80,
+          "column": 6,
+          "specs": [
+            {
+              "title": "기본 흐름: 로그아웃 후 로그인 화면으로 이동, 인증 상태 초기화",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 9,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 944,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-15T00:53:03.649Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "dcea4422ddbe38d49891-afff2af0b0e9ece38207",
+              "file": "uc-01-02-auth.spec.ts",
+              "line": 81,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "uc-03-profile.spec.ts",
+      "file": "uc-03-profile.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "UC-03. 개인정보 수정",
+          "file": "uc-03-profile.spec.ts",
+          "line": 9,
+          "column": 6,
+          "specs": [
+            {
+              "title": "기본 흐름 — 이름 수정: 새 이름 저장 후 네비게이션 바에 즉시 반영",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 7300,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('수정된이름')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('수정된이름')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('수정된이름')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('수정된이름')\u001b[22m\n\n    at C:\\_vibe\\todolist-app\\test\\e2e\\uc-03-profile.spec.ts:20:43",
+                        "location": {
+                          "file": "C:\\_vibe\\todolist-app\\test\\e2e\\uc-03-profile.spec.ts",
+                          "column": 43,
+                          "line": 20
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 18 |\u001b[39m\n \u001b[90m 19 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'button'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m'돌아가기'\u001b[39m })\u001b[33m.\u001b[39mor(page\u001b[33m.\u001b[39mlocator(\u001b[32m'button'\u001b[39m)\u001b[33m.\u001b[39mfilter({ hasText\u001b[33m:\u001b[39m \u001b[32m'돌아가기'\u001b[39m }))\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 20 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByText(newName))\u001b[33m.\u001b[39mtoBeVisible({ timeout\u001b[33m:\u001b[39m \u001b[35m5000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 21 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 22 |\u001b[39m\n \u001b[90m 23 |\u001b[39m   test(\u001b[32m'기본 흐름 — 비밀번호 변경: 정상 변경 완료'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\_vibe\\todolist-app\\test\\e2e\\uc-03-profile.spec.ts",
+                            "column": 43,
+                            "line": 20
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('수정된이름')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('수정된이름')\u001b[22m\n\n\n  18 |\n  19 |     await page.getByRole('button', { name: '돌아가기' }).or(page.locator('button').filter({ hasText: '돌아가기' })).click();\n> 20 |     await expect(page.getByText(newName)).toBeVisible({ timeout: 5000 });\n     |                                           ^\n  21 |   });\n  22 |\n  23 |   test('기본 흐름 — 비밀번호 변경: 정상 변경 완료', async ({ page }) => {\n    at C:\\_vibe\\todolist-app\\test\\e2e\\uc-03-profile.spec.ts:20:43"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-15T00:52:48.139Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\_vibe\\todolist-app\\test\\e2e\\results\\artifacts\\uc-03-profile-UC-03-개인정보-수-9b59c-수정-새-이름-저장-후-네비게이션-바에-즉시-반영-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\_vibe\\todolist-app\\test\\e2e\\results\\artifacts\\uc-03-profile-UC-03-개인정보-수-9b59c-수정-새-이름-저장-후-네비게이션-바에-즉시-반영-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\_vibe\\todolist-app\\test\\e2e\\uc-03-profile.spec.ts",
+                        "column": 43,
+                        "line": 20
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "516c55f89c82f7b11245-231b32e8bb10477edce9",
+              "file": "uc-03-profile.spec.ts",
+              "line": 10,
+              "column": 7
+            },
+            {
+              "title": "기본 흐름 — 비밀번호 변경: 정상 변경 완료",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 2777,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-15T00:52:56.103Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "516c55f89c82f7b11245-4e5d7944be6206de5f36",
+              "file": "uc-03-profile.spec.ts",
+              "line": 23,
+              "column": 7
+            },
+            {
+              "title": "E1. 현재 비밀번호 불일치 → 오류 메시지",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1012,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-15T00:52:59.018Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "516c55f89c82f7b11245-f16797de4f610f619434",
+              "file": "uc-03-profile.spec.ts",
+              "line": 36,
+              "column": 7
+            },
+            {
+              "title": "E3. 이름 비어있을 때 저장 시도 → 오류 메시지",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 756,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-15T00:53:00.039Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "516c55f89c82f7b11245-84dbda3940703f438ca8",
+              "file": "uc-03-profile.spec.ts",
+              "line": 47,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "uc-04-06-categories.spec.ts",
+      "file": "uc-04-06-categories.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "UC-04. 기본 카테고리 조회",
+          "file": "uc-04-06-categories.spec.ts",
+          "line": 10,
+          "column": 6,
+          "specs": [
+            {
+              "title": "기본 흐름: 할일 목록 화면에 기본 카테고리 표시, 수정·삭제 버튼 없음",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 1600,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-15T00:52:48.167Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a90b0508525f5aecc0bf-c65d5c9d740b208563f2",
+              "file": "uc-04-06-categories.spec.ts",
+              "line": 11,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "UC-05. 사용자 정의 카테고리 생성",
+          "file": "uc-04-06-categories.spec.ts",
+          "line": 27,
+          "column": 6,
+          "specs": [
+            {
+              "title": "기본 흐름: 카테고리 추가 후 목록에 즉시 반영",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "failed",
+                      "duration": 1114,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('카테고리_1778806370686')\nExpected: visible\nError: strict mode violation: getByText('카테고리_1778806370686') resolved to 2 elements:\n    1) <span>카테고리_1778806370686</span> aka getByRole('button', { name: '카테고리_1778806370686 선택' })\n    2) <option value=\"45caa634-8a7a-424f-8f55-b2e4e8f689d3\">카테고리_1778806370686</option> aka getByLabel('카테고리 필터')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('카테고리_1778806370686')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('카테고리_1778806370686')\nExpected: visible\nError: strict mode violation: getByText('카테고리_1778806370686') resolved to 2 elements:\n    1) <span>카테고리_1778806370686</span> aka getByRole('button', { name: '카테고리_1778806370686 선택' })\n    2) <option value=\"45caa634-8a7a-424f-8f55-b2e4e8f689d3\">카테고리_1778806370686</option> aka getByLabel('카테고리 필터')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('카테고리_1778806370686')\u001b[22m\n\n    at C:\\_vibe\\todolist-app\\test\\e2e\\uc-04-06-categories.spec.ts:37:48",
+                        "location": {
+                          "file": "C:\\_vibe\\todolist-app\\test\\e2e\\uc-04-06-categories.spec.ts",
+                          "column": 48,
+                          "line": 37
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 35 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'dialog'\u001b[39m)\u001b[33m.\u001b[39mgetByRole(\u001b[32m'button'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m'생성'\u001b[39m })\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m 36 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 37 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByText(categoryName))\u001b[33m.\u001b[39mtoBeVisible({ timeout\u001b[33m:\u001b[39m \u001b[35m5000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 38 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 39 |\u001b[39m\n \u001b[90m 40 |\u001b[39m   test(\u001b[32m'E1. 카테고리 이름 누락 → 저장 차단 및 오류 메시지'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\_vibe\\todolist-app\\test\\e2e\\uc-04-06-categories.spec.ts",
+                            "column": 48,
+                            "line": 37
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('카테고리_1778806370686')\nExpected: visible\nError: strict mode violation: getByText('카테고리_1778806370686') resolved to 2 elements:\n    1) <span>카테고리_1778806370686</span> aka getByRole('button', { name: '카테고리_1778806370686 선택' })\n    2) <option value=\"45caa634-8a7a-424f-8f55-b2e4e8f689d3\">카테고리_1778806370686</option> aka getByLabel('카테고리 필터')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('카테고리_1778806370686')\u001b[22m\n\n\n  35 |     await page.getByRole('dialog').getByRole('button', { name: '생성' }).click();\n  36 |\n> 37 |     await expect(page.getByText(categoryName)).toBeVisible({ timeout: 5000 });\n     |                                                ^\n  38 |   });\n  39 |\n  40 |   test('E1. 카테고리 이름 누락 → 저장 차단 및 오류 메시지', async ({ page }) => {\n    at C:\\_vibe\\todolist-app\\test\\e2e\\uc-04-06-categories.spec.ts:37:48"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-15T00:52:49.906Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\_vibe\\todolist-app\\test\\e2e\\results\\artifacts\\uc-04-06-categories-UC-05--8afec-성-기본-흐름-카테고리-추가-후-목록에-즉시-반영-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\_vibe\\todolist-app\\test\\e2e\\results\\artifacts\\uc-04-06-categories-UC-05--8afec-성-기본-흐름-카테고리-추가-후-목록에-즉시-반영-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\_vibe\\todolist-app\\test\\e2e\\uc-04-06-categories.spec.ts",
+                        "column": 48,
+                        "line": 37
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "a90b0508525f5aecc0bf-c5e9e36076593562176c",
+              "file": "uc-04-06-categories.spec.ts",
+              "line": 28,
+              "column": 7
+            },
+            {
+              "title": "E1. 카테고리 이름 누락 → 저장 차단 및 오류 메시지",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 874,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-15T00:52:51.685Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a90b0508525f5aecc0bf-7eef58130527489fee5b",
+              "file": "uc-04-06-categories.spec.ts",
+              "line": 40,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "UC-06. 사용자 정의 카테고리 수정·삭제",
+          "file": "uc-04-06-categories.spec.ts",
+          "line": 49,
+          "column": 6,
+          "specs": [
+            {
+              "title": "기본 흐름 — 수정: 카테고리 이름 변경 후 목록 갱신",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 2,
+                      "status": "failed",
+                      "duration": 991,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('원본_1778806373386')\nExpected: visible\nError: strict mode violation: getByText('원본_1778806373386') resolved to 2 elements:\n    1) <span>원본_1778806373386</span> aka getByRole('button', { name: '원본_1778806373386 선택' })\n    2) <option value=\"1808284a-2091-4137-a50e-1c1341b8c072\">원본_1778806373386</option> aka getByLabel('카테고리 필터')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('원본_1778806373386')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('원본_1778806373386')\nExpected: visible\nError: strict mode violation: getByText('원본_1778806373386') resolved to 2 elements:\n    1) <span>원본_1778806373386</span> aka getByRole('button', { name: '원본_1778806373386 선택' })\n    2) <option value=\"1808284a-2091-4137-a50e-1c1341b8c072\">원본_1778806373386</option> aka getByLabel('카테고리 필터')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('원본_1778806373386')\u001b[22m\n\n    at C:\\_vibe\\todolist-app\\test\\e2e\\uc-04-06-categories.spec.ts:59:48",
+                        "location": {
+                          "file": "C:\\_vibe\\todolist-app\\test\\e2e\\uc-04-06-categories.spec.ts",
+                          "column": 48,
+                          "line": 59
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 57 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'dialog'\u001b[39m)\u001b[33m.\u001b[39mgetByLabel(\u001b[32m'카테고리 이름'\u001b[39m)\u001b[33m.\u001b[39mfill(originalName)\u001b[33m;\u001b[39m\n \u001b[90m 58 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'dialog'\u001b[39m)\u001b[33m.\u001b[39mgetByRole(\u001b[32m'button'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m'생성'\u001b[39m })\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 59 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByText(originalName))\u001b[33m.\u001b[39mtoBeVisible({ timeout\u001b[33m:\u001b[39m \u001b[35m5000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 60 |\u001b[39m\n \u001b[90m 61 |\u001b[39m     \u001b[90m// 카테고리 수정 버튼 클릭 (aria-label=\"${name} 수정\")\u001b[39m\n \u001b[90m 62 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'button'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m`${originalName} 수정`\u001b[39m })\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\_vibe\\todolist-app\\test\\e2e\\uc-04-06-categories.spec.ts",
+                            "column": 48,
+                            "line": 59
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('원본_1778806373386')\nExpected: visible\nError: strict mode violation: getByText('원본_1778806373386') resolved to 2 elements:\n    1) <span>원본_1778806373386</span> aka getByRole('button', { name: '원본_1778806373386 선택' })\n    2) <option value=\"1808284a-2091-4137-a50e-1c1341b8c072\">원본_1778806373386</option> aka getByLabel('카테고리 필터')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('원본_1778806373386')\u001b[22m\n\n\n  57 |     await page.getByRole('dialog').getByLabel('카테고리 이름').fill(originalName);\n  58 |     await page.getByRole('dialog').getByRole('button', { name: '생성' }).click();\n> 59 |     await expect(page.getByText(originalName)).toBeVisible({ timeout: 5000 });\n     |                                                ^\n  60 |\n  61 |     // 카테고리 수정 버튼 클릭 (aria-label=\"${name} 수정\")\n  62 |     await page.getByRole('button', { name: `${originalName} 수정` }).click();\n    at C:\\_vibe\\todolist-app\\test\\e2e\\uc-04-06-categories.spec.ts:59:48"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-15T00:52:52.720Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\_vibe\\todolist-app\\test\\e2e\\results\\artifacts\\uc-04-06-categories-UC-06--3abc5--흐름-—-수정-카테고리-이름-변경-후-목록-갱신-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\_vibe\\todolist-app\\test\\e2e\\results\\artifacts\\uc-04-06-categories-UC-06--3abc5--흐름-—-수정-카테고리-이름-변경-후-목록-갱신-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\_vibe\\todolist-app\\test\\e2e\\uc-04-06-categories.spec.ts",
+                        "column": 48,
+                        "line": 59
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "a90b0508525f5aecc0bf-5d65907179cba43afc2a",
+              "file": "uc-04-06-categories.spec.ts",
+              "line": 50,
+              "column": 7
+            },
+            {
+              "title": "기본 흐름 — 삭제: 확인 후 카테고리 제거",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 2,
+                      "status": "failed",
+                      "duration": 815,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('삭제대상_1778806374952')\nExpected: visible\nError: strict mode violation: getByText('삭제대상_1778806374952') resolved to 2 elements:\n    1) <span>삭제대상_1778806374952</span> aka getByRole('button', { name: '삭제대상_1778806374952 선택' })\n    2) <option value=\"eba22e2f-fe5a-4c82-856d-7f60b4073744\">삭제대상_1778806374952</option> aka getByLabel('카테고리 필터')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('삭제대상_1778806374952')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('삭제대상_1778806374952')\nExpected: visible\nError: strict mode violation: getByText('삭제대상_1778806374952') resolved to 2 elements:\n    1) <span>삭제대상_1778806374952</span> aka getByRole('button', { name: '삭제대상_1778806374952 선택' })\n    2) <option value=\"eba22e2f-fe5a-4c82-856d-7f60b4073744\">삭제대상_1778806374952</option> aka getByLabel('카테고리 필터')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('삭제대상_1778806374952')\u001b[22m\n\n    at C:\\_vibe\\todolist-app\\test\\e2e\\uc-04-06-categories.spec.ts:79:48",
+                        "location": {
+                          "file": "C:\\_vibe\\todolist-app\\test\\e2e\\uc-04-06-categories.spec.ts",
+                          "column": 48,
+                          "line": 79
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 77 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'dialog'\u001b[39m)\u001b[33m.\u001b[39mgetByLabel(\u001b[32m'카테고리 이름'\u001b[39m)\u001b[33m.\u001b[39mfill(categoryName)\u001b[33m;\u001b[39m\n \u001b[90m 78 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'dialog'\u001b[39m)\u001b[33m.\u001b[39mgetByRole(\u001b[32m'button'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m'생성'\u001b[39m })\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 79 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByText(categoryName))\u001b[33m.\u001b[39mtoBeVisible({ timeout\u001b[33m:\u001b[39m \u001b[35m5000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 80 |\u001b[39m\n \u001b[90m 81 |\u001b[39m     \u001b[90m// 카테고리 삭제 버튼 클릭 (aria-label=\"${name} 삭제\")\u001b[39m\n \u001b[90m 82 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'button'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m`${categoryName} 삭제`\u001b[39m })\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\_vibe\\todolist-app\\test\\e2e\\uc-04-06-categories.spec.ts",
+                            "column": 48,
+                            "line": 79
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('삭제대상_1778806374952')\nExpected: visible\nError: strict mode violation: getByText('삭제대상_1778806374952') resolved to 2 elements:\n    1) <span>삭제대상_1778806374952</span> aka getByRole('button', { name: '삭제대상_1778806374952 선택' })\n    2) <option value=\"eba22e2f-fe5a-4c82-856d-7f60b4073744\">삭제대상_1778806374952</option> aka getByLabel('카테고리 필터')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('삭제대상_1778806374952')\u001b[22m\n\n\n  77 |     await page.getByRole('dialog').getByLabel('카테고리 이름').fill(categoryName);\n  78 |     await page.getByRole('dialog').getByRole('button', { name: '생성' }).click();\n> 79 |     await expect(page.getByText(categoryName)).toBeVisible({ timeout: 5000 });\n     |                                                ^\n  80 |\n  81 |     // 카테고리 삭제 버튼 클릭 (aria-label=\"${name} 삭제\")\n  82 |     await page.getByRole('button', { name: `${categoryName} 삭제` }).click();\n    at C:\\_vibe\\todolist-app\\test\\e2e\\uc-04-06-categories.spec.ts:79:48"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-15T00:52:54.308Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\_vibe\\todolist-app\\test\\e2e\\results\\artifacts\\uc-04-06-categories-UC-06--431eb-·삭제-기본-흐름-—-삭제-확인-후-카테고리-제거-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\_vibe\\todolist-app\\test\\e2e\\results\\artifacts\\uc-04-06-categories-UC-06--431eb-·삭제-기본-흐름-—-삭제-확인-후-카테고리-제거-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\_vibe\\todolist-app\\test\\e2e\\uc-04-06-categories.spec.ts",
+                        "column": 48,
+                        "line": 79
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "a90b0508525f5aecc0bf-4c5d15b081d7d7730a44",
+              "file": "uc-04-06-categories.spec.ts",
+              "line": 72,
+              "column": 7
+            },
+            {
+              "title": "E1. 기본 카테고리 수정·삭제 시도 불가: 버튼 없음",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 1107,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-15T00:52:55.756Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a90b0508525f5aecc0bf-1a9b40973b961049a92f",
+              "file": "uc-04-06-categories.spec.ts",
+              "line": 89,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "uc-07-11-todos.spec.ts",
+      "file": "uc-07-11-todos.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "UC-07. 할일 등록",
+          "file": "uc-07-11-todos.spec.ts",
+          "line": 26,
+          "column": 6,
+          "specs": [
+            {
+              "title": "기본 흐름: 제목 입력 후 저장 → 목록에 즉시 추가",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 1282,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-15T00:52:48.178Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1290c99b4670cb77a174-2f4629008bbbb99938da",
+              "file": "uc-07-11-todos.spec.ts",
+              "line": 27,
+              "column": 7
+            },
+            {
+              "title": "선택 항목 포함 등록: 설명, 마감일 포함",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 1101,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-15T00:52:49.622Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1290c99b4670cb77a174-272bc3460d140ea8c846",
+              "file": "uc-07-11-todos.spec.ts",
+              "line": 33,
+              "column": 7
+            },
+            {
+              "title": "E1. 제목 누락 → 저장 차단 및 오류 메시지",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 828,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-15T00:52:50.737Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1290c99b4670cb77a174-f86ce206d98491ea68f4",
+              "file": "uc-07-11-todos.spec.ts",
+              "line": 46,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "UC-08. 할일 목록 조회 및 필터링",
+          "file": "uc-07-11-todos.spec.ts",
+          "line": 55,
+          "column": 6,
+          "specs": [
+            {
+              "title": "기본 흐름: 로그인 시 본인 할일 목록 표시",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 1149,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-15T00:52:51.591Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1290c99b4670cb77a174-0c77cd3216b3f0f8549f",
+              "file": "uc-07-11-todos.spec.ts",
+              "line": 56,
+              "column": 7
+            },
+            {
+              "title": "완료 여부 필터: 완료 토글 후 완료 필터 적용",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "timedOut",
+                      "duration": 30055,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "C:\\_vibe\\todolist-app\\test\\e2e\\uc-07-11-todos.spec.ts",
+                            "column": 26,
+                            "line": 75
+                          },
+                          "message": "Error: locator.selectOption: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('combobox').filter({ hasText: /완료|전체/ }).first()\u001b[22m\n\u001b[2m    - locator resolved to <select aria-label=\"카테고리 필터\">…</select>\u001b[22m\n\u001b[2m  - attempting select option action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible and enabled\u001b[22m\n\u001b[2m      - did not find some options\u001b[22m\n\u001b[2m    - retrying select option action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible and enabled\u001b[22m\n\u001b[2m      - did not find some options\u001b[22m\n\u001b[2m    - retrying select option action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    56 × waiting for element to be visible and enabled\u001b[22m\n\u001b[2m       - did not find some options\u001b[22m\n\u001b[2m     - retrying select option action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n\n  73 |     const statusFilter = page.getByRole('combobox').filter({ hasText: /완료|전체/ }).first();\n  74 |     if (await statusFilter.count() > 0) {\n> 75 |       await statusFilter.selectOption({ label: '완료' });\n     |                          ^\n  76 |       await page.waitForTimeout(500);\n  77 |       await expect(page.getByText(title)).toBeVisible({ timeout: 3000 });\n  78 |     } else {\n    at C:\\_vibe\\todolist-app\\test\\e2e\\uc-07-11-todos.spec.ts:75:26"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-15T00:52:52.754Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\_vibe\\todolist-app\\test\\e2e\\results\\artifacts\\uc-07-11-todos-UC-08-할일-목록-baa68-링-완료-여부-필터-완료-토글-후-완료-필터-적용-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\_vibe\\todolist-app\\test\\e2e\\results\\artifacts\\uc-07-11-todos-UC-08-할일-목록-baa68-링-완료-여부-필터-완료-토글-후-완료-필터-적용-chromium\\error-context.md"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "1290c99b4670cb77a174-ad8506ec062fd1437214",
+              "file": "uc-07-11-todos.spec.ts",
+              "line": 63,
+              "column": 7
+            },
+            {
+              "title": "E1. 필터 결과 없음 → 안내 메시지 표시 (할일 없을 때 미완료 필터)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 10,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 610,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-15T00:53:23.313Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1290c99b4670cb77a174-c8bc79a01f7b3d7a83ea",
+              "file": "uc-07-11-todos.spec.ts",
+              "line": 83,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "UC-09. 할일 수정",
+          "file": "uc-07-11-todos.spec.ts",
+          "line": 99,
+          "column": 6,
+          "specs": [
+            {
+              "title": "기본 흐름: 할일 내용 수정 후 목록에 즉시 반영",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 10,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 30065,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "C:\\_vibe\\todolist-app\\test\\e2e\\uc-07-11-todos.spec.ts",
+                            "column": 50,
+                            "line": 109
+                          },
+                          "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('원본_1778806404526 수정')\u001b[22m\n\u001b[2m    - locator resolved to <button aria-label=\"원본_1778806404526 수정\">수정</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div>…</div> intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div>…</div> intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    55 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <div>…</div> intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n\n  107 |     const todoCard = page.locator('div').filter({ hasText: originalTitle }).filter({ has: page.getByLabel(`${originalTitle} 수정`) }).first();\n  108 |     await todoCard.hover();\n> 109 |     await page.getByLabel(`${originalTitle} 수정`).click();\n      |                                                  ^\n  110 |\n  111 |     // edit mode: 버튼 텍스트는 '저장'\n  112 |     const editDialog = page.getByRole('dialog');\n    at C:\\_vibe\\todolist-app\\test\\e2e\\uc-07-11-todos.spec.ts:109:50"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-15T00:53:24.023Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\_vibe\\todolist-app\\test\\e2e\\results\\artifacts\\uc-07-11-todos-UC-09-할일-수정-기본-흐름-할일-내용-수정-후-목록에-즉시-반영-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\_vibe\\todolist-app\\test\\e2e\\results\\artifacts\\uc-07-11-todos-UC-09-할일-수정-기본-흐름-할일-내용-수정-후-목록에-즉시-반영-chromium\\error-context.md"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "1290c99b4670cb77a174-4ba5969725167c284014",
+              "file": "uc-07-11-todos.spec.ts",
+              "line": 100,
+              "column": 7
+            },
+            {
+              "title": "E1. 제목 삭제 후 저장 시도 → 오류 메시지",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 11,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 30066,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "C:\\_vibe\\todolist-app\\test\\e2e\\uc-07-11-todos.spec.ts",
+                            "column": 42,
+                            "line": 127
+                          },
+                          "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('제목삭제테스트_1778806435248 수정')\u001b[22m\n\u001b[2m    - locator resolved to <button aria-label=\"제목삭제테스트_1778806435248 수정\">수정</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div>…</div> intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div>…</div> intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    55 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <div>…</div> intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n\n  125 |     const todoCard = page.locator('div').filter({ hasText: title }).filter({ has: page.getByLabel(`${title} 수정`) }).first();\n  126 |     await todoCard.hover();\n> 127 |     await page.getByLabel(`${title} 수정`).click();\n      |                                          ^\n  128 |\n  129 |     const editDialog = page.getByRole('dialog');\n  130 |     await editDialog.getByLabel('제목 *').fill('');\n    at C:\\_vibe\\todolist-app\\test\\e2e\\uc-07-11-todos.spec.ts:127:42"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-15T00:53:54.587Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\_vibe\\todolist-app\\test\\e2e\\results\\artifacts\\uc-07-11-todos-UC-09-할일-수정-E1-제목-삭제-후-저장-시도-→-오류-메시지-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\_vibe\\todolist-app\\test\\e2e\\results\\artifacts\\uc-07-11-todos-UC-09-할일-수정-E1-제목-삭제-후-저장-시도-→-오류-메시지-chromium\\error-context.md"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "1290c99b4670cb77a174-fff4b7ba16170d87a005",
+              "file": "uc-07-11-todos.spec.ts",
+              "line": 120,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "UC-10. 완료 상태 토글",
+          "file": "uc-07-11-todos.spec.ts",
+          "line": 136,
+          "column": 6,
+          "specs": [
+            {
+              "title": "기본 흐름: 미완료 → 완료 → 미완료 전환",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 12,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1897,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-15T00:54:25.240Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1290c99b4670cb77a174-d969867b05c7b6c527db",
+              "file": "uc-07-11-todos.spec.ts",
+              "line": 137,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "UC-11. 할일 삭제",
+          "file": "uc-07-11-todos.spec.ts",
+          "line": 154,
+          "column": 6,
+          "specs": [
+            {
+              "title": "기본 흐름: 삭제 확인 후 목록에서 즉시 제거",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 12,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 30053,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "C:\\_vibe\\todolist-app\\test\\e2e\\uc-07-11-todos.spec.ts",
+                            "column": 42,
+                            "line": 162
+                          },
+                          "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('삭제테스트_1778806467738 삭제')\u001b[22m\n\u001b[2m    - locator resolved to <button aria-label=\"삭제테스트_1778806467738 삭제\">삭제</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div>…</div> intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div>…</div> intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    55 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <div>…</div> intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n\n  160 |     const todoCard = page.locator('div').filter({ hasText: title }).filter({ has: page.getByLabel(`${title} 삭제`) }).first();\n  161 |     await todoCard.hover();\n> 162 |     await page.getByLabel(`${title} 삭제`).click();\n      |                                          ^\n  163 |\n  164 |     await page.getByRole('dialog').getByRole('button', { name: '삭제' }).click();\n  165 |     await expect(page.getByText(title)).not.toBeVisible({ timeout: 5000 });\n    at C:\\_vibe\\todolist-app\\test\\e2e\\uc-07-11-todos.spec.ts:162:42"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-15T00:54:27.237Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\_vibe\\todolist-app\\test\\e2e\\results\\artifacts\\uc-07-11-todos-UC-11-할일-삭제-기본-흐름-삭제-확인-후-목록에서-즉시-제거-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\_vibe\\todolist-app\\test\\e2e\\results\\artifacts\\uc-07-11-todos-UC-11-할일-삭제-기본-흐름-삭제-확인-후-목록에서-즉시-제거-chromium\\error-context.md"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "1290c99b4670cb77a174-b48ccccf237673bd67d3",
+              "file": "uc-07-11-todos.spec.ts",
+              "line": 155,
+              "column": 7
+            },
+            {
+              "title": "E1. 삭제 취소: 목록 변경 없음",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 13,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 30090,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "C:\\_vibe\\todolist-app\\test\\e2e\\uc-07-11-todos.spec.ts",
+                            "column": 42,
+                            "line": 175
+                          },
+                          "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('취소테스트_1778806498452 삭제')\u001b[22m\n\u001b[2m    - locator resolved to <button aria-label=\"취소테스트_1778806498452 삭제\">삭제</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div>…</div> intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div>…</div> intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    55 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <div>…</div> intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n\n  173 |     const todoCard = page.locator('div').filter({ hasText: title }).filter({ has: page.getByLabel(`${title} 삭제`) }).first();\n  174 |     await todoCard.hover();\n> 175 |     await page.getByLabel(`${title} 삭제`).click();\n      |                                          ^\n  176 |\n  177 |     await page.getByRole('dialog').getByRole('button', { name: '취소' }).click();\n  178 |     await expect(page.getByText(title)).toBeVisible();\n    at C:\\_vibe\\todolist-app\\test\\e2e\\uc-07-11-todos.spec.ts:175:42"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-15T00:54:57.783Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\_vibe\\todolist-app\\test\\e2e\\results\\artifacts\\uc-07-11-todos-UC-11-할일-삭제-E1-삭제-취소-목록-변경-없음-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\_vibe\\todolist-app\\test\\e2e\\results\\artifacts\\uc-07-11-todos-UC-11-할일-삭제-E1-삭제-취소-목록-변경-없음-chromium\\error-context.md"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "1290c99b4670cb77a174-14d3a04142075fb5dc99",
+              "file": "uc-07-11-todos.spec.ts",
+              "line": 168,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "uc-12-delete-account.spec.ts",
+      "file": "uc-12-delete-account.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "UC-12. 회원 탈퇴",
+          "file": "uc-12-delete-account.spec.ts",
+          "line": 9,
+          "column": 6,
+          "specs": [
+            {
+              "title": "기본 흐름: window.confirm 수락 후 탈퇴 → 로그인 화면으로 이동",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 1368,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-15T00:52:48.178Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4725c649394d0b7b6aa4-48fe213d17a67359eccd",
+              "file": "uc-12-delete-account.spec.ts",
+              "line": 10,
+              "column": 7
+            },
+            {
+              "title": "E2. 탈퇴 취소 (window.confirm 거부): 프로필 화면 유지",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 1512,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-15T00:52:49.705Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4725c649394d0b7b6aa4-2ce3046a5a036cc722ca",
+              "file": "uc-12-delete-account.spec.ts",
+              "line": 19,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-05-15T00:52:47.407Z",
+    "duration": 160634.555,
+    "expected": 21,
+    "skipped": 0,
+    "unexpected": 10,
+    "flaky": 0
+  }
+}

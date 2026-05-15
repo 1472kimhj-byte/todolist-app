@@ -10,6 +10,11 @@ interface TodoItemProps {
   onEdit: (todo: Todo) => void;
 }
 
+function toLocalDateStr(isoString: string): string {
+  const d = new Date(isoString);
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+}
+
 function isOverdue(dueDate: string | null): boolean {
   if (!dueDate) return false;
   return new Date(dueDate) < new Date(new Date().toDateString());
@@ -159,7 +164,7 @@ export default function TodoItem({ todo, onEdit }: TodoItemProps) {
                 marginTop: '4px',
               }}
             >
-              마감: {todo.due_date}
+              마감: {toLocalDateStr(todo.due_date)}
             </p>
           )}
         </div>

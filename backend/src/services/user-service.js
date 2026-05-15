@@ -51,7 +51,19 @@ async function updateMe(userId, dto) {
   return omitPasswordHash(updated);
 }
 
-async function deleteMe(userId) {
+async function deleteMe(userId, password) {
+  if (!password) {
+    throw new AppError(400, 'VALIDATION_ERROR', '비밀번호를 입력해주세요.');
+  }
+
+  const user = await userRepo.findById(userId);
+  if (!user) throw new AppError(404, 'USER_NOT_FOUND', '사용자를 찾을 수 없습니다.');
+
+  const isValid = await comparePassword(password, user.password_hash);
+  if (!isValid) {
+    throw new AppError(401, 'WRONG_PASSWORD', '비밀번호가 올바르지 않습니다.');
+  }
+
   console.log(`[User] 회원 탈퇴 시작 - userId: ${userId}`);
   const client = await getClient();
   try {

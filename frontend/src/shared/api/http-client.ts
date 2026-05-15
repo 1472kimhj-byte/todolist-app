@@ -32,6 +32,11 @@ httpClient.interceptors.response.use(
     const originalRequest = error.config;
 
     if (error.response?.status === 401 && !originalRequest._retry) {
+      const isAuthEndpoint =
+        originalRequest.url?.includes('/api/auth/login') ||
+        originalRequest.url?.includes('/api/auth/register');
+      if (isAuthEndpoint) return Promise.reject(error);
+
       if (isRefreshing) {
         return new Promise<string>((resolve, reject) => {
           failedQueue.push({ resolve, reject });

@@ -49,3 +49,7 @@ export interface UpdateMeRequest {
   currentPassword?: string;
   password?: string;
 }
+
+export interface DeleteMeRequest {
+  password: string;
+}
