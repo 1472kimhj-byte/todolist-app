@@ -30,7 +30,7 @@ export default function LoginPage() {
           fontSize: '3.2rem', fontWeight: 700, color: '#FFFFFF',
           letterSpacing: '-1px', lineHeight: '4.2rem', margin: 0,
         }}>
-          TodoListApp
+          할일 목록 앱
         </h1>
         <p style={{
           color: 'rgba(255,255,255,0.65)', fontSize: '1.6rem', margin: '8px 0 0 0',

@@ -33,9 +33,9 @@ function renderLoginPage() {
 }
 
 describe('LoginPage', () => {
-  it('앱 타이틀 "TodoListApp"을 표시한다', () => {
+  it('앱 타이틀 "할일 목록 앱"을 표시한다', () => {
     renderLoginPage();
-    expect(screen.getByRole('heading', { level: 1, name: 'TodoListApp' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 1, name: '할일 목록 앱' })).toBeInTheDocument();
   });
 
   it('슬로건 "개인 할일 관리 앱"을 표시한다', () => {
